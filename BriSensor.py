@@ -30,9 +30,9 @@ while True:
     # Calculate target brightness value
     if luxaverage in range(0, 5):
         targetbri = 100                                 # 1/5 brightness level
-    elif luxaverage in range(5, 20):
+    elif luxaverage in range(5, 40):
         targetbri = 140                                 # 2/5 brightness level
-    elif luxaverage in range(20, 100):
+    elif luxaverage in range(40, 100):
         targetbri = 180                                 # 3/5 brightness level
     elif luxaverage in range(100, 200):
         targetbri = 210                                 # 4/5 brightness level
@@ -61,7 +61,7 @@ while True:
         GPIO.output(40, True)                           # stay in "Night mode"
     else:
         # Set DAY/NIGHT
-        if luxaverage in range(0, 20):                  # if it's night
+        if luxaverage in range(0, 40):                  # if it's night
             GPIO.output(40, True)                       # set "Night mode"
         else:                                           # else
             GPIO.output(40, False)                      # set "Day mode"
