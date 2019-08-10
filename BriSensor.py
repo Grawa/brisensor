@@ -49,7 +49,7 @@ while True:
     # Setting up GPIO - NOTE Select in OAPro day/night settings "GPIO Pin":21 (PIN 40 RPi)
     GPIO.setmode(GPIO.BOARD)
     GPIO.setup(40, GPIO.OUT)
-    print("Night mode (True=NIGHT, False=DAY): ", GPIO.input(40))
+    print("Night mode (True=1=NIGHT, False=0=DAY): ", GPIO.input(40))
 
     # Avoid constantly switching between DAY / NIGHT
     if luxaverage in range(10, 40):                                 # if near 20(night switch value) arrives
