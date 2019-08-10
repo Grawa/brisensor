@@ -23,9 +23,9 @@ while True:
     targetbri = 0                                       # Default value
     if luxaverage in range(0, 5):
         targetbri = 100                                 # 1/5 brightness level
-    elif luxaverage in range(5, 40):
+    elif luxaverage in range(5, 20):
         targetbri = 140                                 # 2/5 brightness level
-    elif luxaverage in range(40, 100):
+    elif luxaverage in range(20, 100):
         targetbri = 180                                 # 3/5 brightness level
     elif luxaverage in range(100, 200):
         targetbri = 210                                 # 4/5 brightness level
@@ -44,20 +44,21 @@ while True:
     for currbrightness in range(currbrightness, targetbri, step):
         with open("/sys/class/backlight/rpi_backlight/brightness", "w") as f:
             f.write(str(currbrightness))
-            print("Adjusting brightness... ", currbrightness)
             time.sleep(0.02)                            # transition speed
 
     # Setting up GPIO - NOTE Select in OAPro day/night settings "GPIO Pin":21 (PIN 40 RPi)
     GPIO.setmode(GPIO.BOARD)
     GPIO.setup(40, GPIO.OUT)
-    print("Night mode (bool): ", GPIO.input(40))
+    print("Night mode (True=NIGHT, False=DAY): ", GPIO.input(40))
 
-    # Avoid constantly switching between DAY / NIGHT    # (GPIO True=NIGHT, False=DAY)
-    if GPIO.input(40) is True and luxaverage <= 200:    # if already in "Night mode" and it's not day yet
-        GPIO.output(40, True)                           # stay in "Night mode"
+    # Avoid constantly switching between DAY / NIGHT
+    if luxaverage in range(10, 40):                                 # if near 20(night switch value) arrives
+        pass                                                        # stay in the same mode
+    elif GPIO.input(40) is True and luxaverage <= 200:              # if already in "Night mode" and it's not day yet
+        pass                                                        # stay in "Night mode"
     else:
         # Set DAY/NIGHT
-        if luxaverage in range(0, 40):                  # if it's night
+        if luxaverage in range(0, 20):                  # if it's night
             GPIO.output(40, True)                       # set "Night mode"
         else:                                           # else
             GPIO.output(40, False)                      # set "Day mode"
