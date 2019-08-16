@@ -14,3 +14,4 @@ The sensor should be positioned in the left side of Raspberry Pi cover,near usb 
 Of course,it's recommended to adjust the lux level values and day/night threshold...
 
 
+info: VGPLabs@gmail.com
