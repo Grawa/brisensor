@@ -1,7 +1,7 @@
 works on Raspberry Pi with Openauto Pro
 # TSL2561 Smart brightness sensor script
 
-This python script is designed control automatically the original raspberry pi screen brightness and Android Auto / Openauto PRO day/night mode while driving.
+This python script is designed control automatically the original raspberry pi screen brightness and Android Auto with Openauto PRO day/night mode while driving.
 
 
 # Note: 
