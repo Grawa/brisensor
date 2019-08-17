@@ -5,7 +5,7 @@ This python script is designed control automatically the original raspberry pi s
 
 
 # Note: 
-The default i2c bus is 3, you should change this value(...)
+default i2c bus is 3, you should change this value according to ypur rpi configuration (...)
 
 GPIO 40(Rpi pin 21) needs to be free/NOT connected.
 Select in OAPro day/night settings "GPIO Pin": 21
