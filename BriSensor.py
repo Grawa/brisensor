@@ -53,9 +53,10 @@ while True:
 
     # Avoid constantly switching between DAY / NIGHT
     night_lux_value = 20                                             # day/night threshold
+    max_lux_in_night = 100                                           # max lux value in night mode
     if luxaverage in range(night_lux_value-10, night_lux_value+10):  # if near night_lux_value(e.g.20) arrives..
         pass                                                         # ..better stay in the same mode
-    elif GPIO.input(40) == 1 and luxaverage <= 100:                  # if already in "Night mode" and it's not day yet
+    elif GPIO.input(40) == 1 and luxaverage <= max_lux_in_night:     # if already in "Night mode" and it's not day yet
         pass                                                         # stay in "Night mode"
     else:
         # Set DAY/NIGHT
