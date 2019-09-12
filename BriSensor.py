@@ -5,7 +5,7 @@ import RPi.GPIO as GPIO
 bus = smbus.SMBus(3)                                            # i2c bus number (NOTE Default value: 1)
 
 while True:
-    # Create a list of brightness values and afterwards calculate the average
+    # Create a list of brightness values (then calculate the average)
     luxlist = []
     for counter in range(10):                                     # Refresh time 0,5*10=5s
         bus.write_byte_data(0x39, 0x00 | 0x80, 0x03)
@@ -52,13 +52,14 @@ while True:
     print("Night mode (True=1=NIGHT, False=0=DAY): ", GPIO.input(40))
 
     # Avoid constantly switching between DAY / NIGHT
-    if luxaverage in range(10, 30):                                 # if near 20(night switch value) arrives
-        pass                                                        # stay in the same mode
-    elif GPIO.input(40) == 1 and luxaverage <= 100:                 # if already in "Night mode" and it's not day yet
-        pass                                                        # stay in "Night mode"
+    night_lux_value = 20
+    if luxaverage in range(night_lux_value-10, night_lux_value+10):  # if near night_lux_value(ex.20) arrives..
+        pass                                                         # ..better stay in the same mode
+    elif GPIO.input(40) == 1 and luxaverage <= 100:                  # if already in "Night mode" and it's not day yet
+        pass                                                         # stay in "Night mode"
     else:
         # Set DAY/NIGHT
-        if luxaverage in range(0, 20):                  # if it's night
+        if luxaverage in range(0, night_lux_value):     # if it's night
             GPIO.output(40, True)                       # set "Night mode"
         else:                                           # else
             GPIO.output(40, False)                      # set "Day mode"
