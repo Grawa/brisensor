@@ -15,3 +15,5 @@ Of course,it's recommended to adjust the target screen brightness values and day
 
 
 info: VGPLabs@gmail.com
+
+ref. Full Guide OAPro https://bluewavestudio.io/community/showthread.php?tid=2398
