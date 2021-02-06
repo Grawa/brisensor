@@ -1,10 +1,12 @@
 import time
 import smbus
 import RPi.GPIO as GPIO
+import os
 
-bus = smbus.SMBus(3)                                            # i2c bus number (NOTE Default value: 1)
+bus = smbus.SMBus(1)                                            # i2c bus number (NOTE Default value: 1)
 
 while True:
+    os.system('sudo date -s "01 JAN 2000 00:00:00"')
     # Create a list of brightness values (then calculate the average)
     luxlist = []
     for counter in range(10):                                     # Refresh time 0,5*10=5s
