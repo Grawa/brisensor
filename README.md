@@ -5,7 +5,7 @@ This python script is designed to automatically control the original raspberry p
 
 
 # Note: 
-The default i2c bus in the script is 3, you should consider to change this value according to ypur rpi configuration (e.g.1)
+The default i2c bus is 1, you can change this value according to your rpi configuration 
 
 GPIO 40(Rpi pin 21) needs to be free/not connected.
 IMPORTANT: Select in OAPro day/night settings "GPIO Pin": 21
@@ -15,3 +15,5 @@ Of course,it's recommended to adjust the target screen brightness values and day
 
 
 info: VGPLabs@gmail.com
+
+ref. Full Guide OAPro https://bluewavestudio.io/community/showthread.php?tid=2398
