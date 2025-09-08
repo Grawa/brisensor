@@ -16,4 +16,8 @@ Of course,it's recommended to adjust the target screen brightness values and day
 
 info: VGPLabs@gmail.com
 
-ref. Full Guide OAPro https://bluewavestudio.io/community/showthread.php?tid=2398
+ref. Full Guide OAPro 
+https://github.com/Grawa/brisensor/blob/master/Guida%20Openauto%20PRO%20Custom%20setup.md
+
+Forum Link(no longer online): https://bluewavestudio.io/community/showthread.php?tid=2398
+
