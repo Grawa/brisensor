@@ -49,7 +49,7 @@ Select “Manual” mode.
 
 Set GPIO Pin to 21 (ensure the selected pin is free and not connected to anything else).
 
-Create a physical button (AssistantButton) and connect it between Pin 37 and Pin 39. (optional)
+Create a physical button (AssistantButton) and connect it between Pin 37 and Pin 39. (optional for AssistantButton)
 
 2
 Enable "I2C" from preferences > raspberry pi configuration > interfaces
@@ -78,7 +78,7 @@ sudo python3 /home/pi/setclock0000.py
 
 
 6
-Open terminal and execute this command:
+Open terminal and execute this command: (optional for AssistantButton)
 ```bash
 sudo pip3 install keyboard
 ```
